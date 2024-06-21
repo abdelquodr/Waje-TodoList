@@ -5,7 +5,7 @@ const TodoItem = ({ todo, toggleTodo, removeTodo }) => {
   return (
     <li className={`todo-item ${todo.completed ? 'completed' : ''}`}>
       <span onClick={() => toggleTodo(todo.id)}>
-        {todo.text}
+        {todo.title}
       </span>
       <button onClick={() => removeTodo(todo.id)}>Remove</button>
     </li>

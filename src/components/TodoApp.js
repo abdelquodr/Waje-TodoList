@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import TodoList from './TodoList';
 import TodoForm from './TodoForm';
 import TodoFilter from './TodoFilter';
@@ -7,9 +7,30 @@ import './TodoApp.css';
 const TodoApp = () => {
   const [todos, setTodos] = useState([]);
   const [filter, setFilter] = useState('all');
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchTodos = async () => {
+      try {
+        const response = await fetch('https://jsonplaceholder.typicode.com/todos');
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        const data = await response.json();
+        setTodos(data.slice(0, 10)); // getting 10 todos for simplicity
+      } catch (error) {
+        setError(error.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchTodos();
+  }, []);
 
   const addTodo = (text) => {
-    const newTodo = { id: Date.now(), text, completed: false };
+    const newTodo = { id: Date.now(), title: text, completed: false };
     setTodos([...todos, newTodo]);
   };
 
@@ -33,7 +54,13 @@ const TodoApp = () => {
       <h1>Todo List</h1>
       <TodoForm addTodo={addTodo} />
       <TodoFilter filter={filter} setFilter={setFilter} />
-      <TodoList todos={filteredTodos} toggleTodo={toggleTodo} removeTodo={removeTodo} />
+      {loading ? (
+        <p>Loading...</p>
+      ) : error ? (
+        <p>Error: {error}</p>
+      ) : (
+        <TodoList todos={filteredTodos} toggleTodo={toggleTodo} removeTodo={removeTodo} />
+      )}
     </div>
   );
 };
