@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-d
 import TodoApp from './components/TodoApp';
 import Login from './components/Login';
 import { AuthProvider, useAuth } from './context/AuthContext';
+import About from './components/About';
+import Home from './components/Home';
 import './App.css';
 
 
@@ -18,8 +20,10 @@ function App() {
       <AuthProvider>
         <div className="App">
           <Routes>
+            <Route path="/" element={<Home />} />
             <Route path="/todos" element={<ProtectedRoute><TodoApp /></ProtectedRoute> } />
-            <Route path="/" element={ <Login /> } />
+            <Route path="/about" element={<About />} />
+            <Route path="/login" element={ <Login /> } />
           </Routes>
         </div>
       </AuthProvider>

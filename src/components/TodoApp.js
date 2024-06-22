@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import TodoList from './TodoList';
 import TodoForm from './TodoForm';
 import TodoFilter from './TodoFilter';
+import Navbar from './Navbar';
 import { useAuth } from '../context/AuthContext';
 import './TodoApp.css';
 
@@ -56,18 +57,22 @@ const TodoApp = () => {
   });
 
   return (
-    <div className="todo-app">
-      <h1>Todo List</h1>
-      <TodoForm addTodo={addTodo} />
-      <TodoFilter filter={filter} setFilter={setFilter} />
-      {loading ? (
-        <p>Loading...</p>
-      ) : error ? (
-        <p>Error: {error}</p>
-      ) : (
-        <TodoList todos={filteredTodos} toggleTodo={toggleTodo} removeTodo={removeTodo} />
-      )}
-    </div>
+    <>
+      <Navbar />
+      <div className="todo-app">
+        <h1>Todo List</h1>
+        <TodoForm addTodo={addTodo} />
+        <TodoFilter filter={filter} setFilter={setFilter} />
+        {loading ? (
+          <p>Loading...</p>
+        ) : error ? (
+          <p>Error: {error}</p>
+        ) : (
+          <TodoList todos={filteredTodos} toggleTodo={toggleTodo} removeTodo={removeTodo} />
+        )}
+      </div>
+    </>
+    
   );
 };
 
