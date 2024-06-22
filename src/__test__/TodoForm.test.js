@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
-import TodoForm from './TodoForm';
+import TodoForm from '../components/TodoForm';
 
 test('calls addTodo with the correct text on form submission', () => {
   const addTodoMock = jest.fn();

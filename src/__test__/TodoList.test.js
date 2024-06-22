@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
-import TodoList from './TodoList';
+import TodoList from '../components/TodoList';
 
 test('renders todos and handles toggle and remove actions', () => {
   const todos = [

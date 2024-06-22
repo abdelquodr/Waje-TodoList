@@ -1,5 +1,5 @@
 import React from 'react';
-import './TodoItem.css';
+import '../styles/TodoItem.css';
 
 const TodoItem = ({ todo, toggleTodo, removeTodo }) => {
   return (

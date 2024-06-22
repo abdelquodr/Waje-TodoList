@@ -1,7 +1,7 @@
 // src/components/TodoFilter.test.js
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
-import TodoFilter from './TodoFilter';
+import TodoFilter from '../components/TodoFilter';
 
 test('calls setFilter with the correct filter', () => {
   const setFilterMock = jest.fn();

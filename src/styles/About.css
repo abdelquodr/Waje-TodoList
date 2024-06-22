@@ -1,0 +1,101 @@
+.about-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f0f2f5;
+  padding: 1rem;
+}
+
+.about-content {
+  text-align: left;
+  max-width: 600px;
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.about-content h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #343a40;
+  text-align: center;
+}
+
+.about-content p {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  color: #6c757d;
+}
+
+.about-content h2 {
+  font-size: 1.75rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  color: #343a40;
+}
+
+.about-content ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.about-content ul li {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  color: #6c757d;
+}
+
+.about-links {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.about-links .btn {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.about-links .primary-btn {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.about-links .primary-btn:hover {
+  background-color: #0056b3;
+}
+
+.about-links .secondary-btn {
+  background-color: #6c757d;
+  color: #fff;
+}
+
+.about-links .secondary-btn:hover {
+  background-color: #343a40;
+}
+
+@media (max-width: 600px) {
+  .about-content {
+    padding: 1rem;
+  }
+
+  .about-links {
+    flex-direction: column;
+  }
+
+  .about-links .btn {
+    width: 100%;
+    margin-bottom: 0.5rem;
+  }
+
+  .about-links .btn:last-child {
+    margin-bottom: 0;
+  }
+}

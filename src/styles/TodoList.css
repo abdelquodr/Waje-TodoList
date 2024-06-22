@@ -1,0 +1,29 @@
+.todo-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.todo-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem;
+  background-color: #fff;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  margin-bottom: 0.5rem;
+}
+
+.todo-list li.completed {
+  /* text-decoration: line-through; */
+  color: #6c757d;
+}
+
+.todo-list button {
+  background-color: #dc3545;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 1rem;
+}
+

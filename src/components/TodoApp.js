@@ -4,7 +4,7 @@ import TodoForm from './TodoForm';
 import TodoFilter from './TodoFilter';
 import Navbar from './Navbar';
 import { useAuth } from '../context/AuthContext';
-import './TodoApp.css';
+import '../styles/TodoApp.css';
 
 const TodoApp = () => {
   const [todos, setTodos] = useState([]);
