@@ -57,7 +57,7 @@ const TodoApp = () => {
   });
 
   return (
-    <>
+    <div>
       <Navbar />
       <div className="todo-app">
         <h1>Todo List</h1>
@@ -71,7 +71,7 @@ const TodoApp = () => {
           <TodoList todos={filteredTodos} toggleTodo={toggleTodo} removeTodo={removeTodo} />
         )}
       </div>
-    </>
+    </div>
     
   );
 };

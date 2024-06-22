@@ -5,7 +5,6 @@ import Login from './components/Login';
 import { AuthProvider, useAuth } from './context/AuthContext';
 import About from './components/About';
 import Home from './components/Home';
-import './App.css';
 
 
 const ProtectedRoute = ({ children  }) => {
@@ -18,12 +17,13 @@ function App() {
   return (
     <Router>
       <AuthProvider>
-        <div className="App">
+        <div>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/todos" element={<ProtectedRoute><TodoApp /></ProtectedRoute> } />
             <Route path="/about" element={<About />} />
             <Route path="/login" element={ <Login /> } />
+            <Route path="*" element={<Navigate to="/" />} />
           </Routes>
         </div>
       </AuthProvider>

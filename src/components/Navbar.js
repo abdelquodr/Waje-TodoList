@@ -6,11 +6,12 @@ import './Navbar.css';
 const Navbar = () => {
   const { auth, logout } = useAuth();
 
+
   return (
     <nav>
       <ul>
         <li><Link to="/">Home</Link></li>
-        <li><Link to="/todos">Todo List</Link></li>
+        <li><Link to="/todos">Todos</Link></li>
         <li><Link to="/about">About</Link></li>
         {auth ? (
           <li>
