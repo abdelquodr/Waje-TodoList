@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import TodoList from './TodoList';
 import TodoForm from './TodoForm';
 import TodoFilter from './TodoFilter';
+import { useAuth } from '../context/AuthContext';
 import './TodoApp.css';
 
 const TodoApp = () => {
@@ -9,11 +10,16 @@ const TodoApp = () => {
   const [filter, setFilter] = useState('all');
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const { auth } = useAuth();
 
   useEffect(() => {
     const fetchTodos = async () => {
       try {
-        const response = await fetch('https://jsonplaceholder.typicode.com/todos');
+        const response = await fetch('https://jsonplaceholder.typicode.com/todos', {
+          headers: {
+            Authorization: `Bearer ${auth}`,
+          },
+        });
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
@@ -46,7 +52,7 @@ const TodoApp = () => {
     if (filter === 'all') return true;
     if (filter === 'active') return !todo.completed;
     if (filter === 'completed') return todo.completed;
-    return false; // handle all possible cases
+    return true; // handle all possible cases
   });
 
   return (
